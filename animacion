@@ -1,0 +1,36 @@
+print("Hello, World!")
+import turtle as t 
+ventana= t.Screen() #crea una ventana para dibujar con turtle, es el lienzo donde se dibujaran las figuras, es esencial para cualquier programa que use turtle para dibujar, sin esta linea no se podria dibujar nada
+ventana.bgcolor("black") #define el color de fondo de la ventana, es importante para darle un aspecto visual a la aplicación y hacerla mas atractiva para el usuario, ademas de que puede ayudar a resaltar las figuras que se dibujan en la ventana
+ventana.tracer(1) #desactiva la animacion de turtle, lo que hace que el dibujo se realice de manera instantanea en lugar de mostrar el proceso de dibujo, lo que puede mejorar el rendimiento y hacer que la experiencia del usuario sea mas fluida, especialmente cuando se dibujan figuras complejas o se realizan muchas operaciones de dibujo en un corto periodo de tiempo
+
+triangulo = t.Turtle() #crea un objeto turtle para dibujar, es esencial para cualquier programa que use turtle para dibujar, sin esta linea no se podria dibujar nada
+triangulo.speed(5) #define la velocidad de dibujo del turtle, es importante para controlar la velocidad a la que se dibujan las figuras en la ventana, lo que puede afectar la experiencia del usuario y hacerla mas agradable o molesta dependiendo de la velocidad elegida
+triangulo.color("red")#define el color
+repeticion= 100 #define el numero de repeticiones para dibujar el triangulo, es importante para controlar la cantidad de figuras que se dibujan en la ventana, lo que puede afectar la experiencia del usuario y hacerla mas agradable o molesta dependiendo de la cantidad elegida
+
+#para dibujar un triangulo con turtle, se usa un bucle for para repetir el proceso de dibujar un lado del triangulo y girar el turtle, lo que permite crear un triangulo con la cantidad de lados y el tamaño deseado, ademas de que es una forma eficiente de dibujar figuras complejas con turtle
+for i in range(repeticion*3): 
+    triangulo.forward(i*5)
+    triangulo.right(140)
+    triangulo.speed(0)
+    ventana.update() #actualiza la ventana para mostrar el dibujo en tiempo real, es importante para que el usuario pueda ver el proceso de dibujo y disfrutar de la experiencia visual, ademas de que puede ayudar a mejorar el rendimiento al actualizar solo lo necesario en lugar de redibujar toda la ventana cada vez 
+
+repeticion2=50
+circulo = t.Turtle()
+circulo.speed(20)
+circulo.color("orange")
+for i in range(repeticion2*3):
+   circulo.circle(i*1)
+   circulo.right(10)
+ 
+repeticion3=30
+estrella = t.Turtle()
+estrella.speed(10)
+estrella.color("yellow")
+for i in range(repeticion3*3):
+    estrella.forward(i*3)
+    estrella.right(145)
+
+
+ventana.mainloop()
