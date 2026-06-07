@@ -1,0 +1,52 @@
+#para crear el codigo usamos tkinter y programacion orientada a objetos, lo que nos permite crear una aplicacion mas organizada y facil de mantener, ademas de que es una buena practica en la programacion
+print("Hello, World!")
+#usamos el "import" para importar la libreria de tkinter y cualquier otra que necesitemos
+import tkinter as tk
+from tkinter import messagebox #importamos messagebox para mostrar mensajes emergentes al usuario, lo que es muy util para interactuar con el usuario y mostrar informacion importante
+import tkinter.ttk as ttk #impartamos ttk para usar los widgets de ttk, que son una mejora de los widgets de tkinter y tienen un aspecto mas moderno
+import pandas as pd
+#usamos la funcion "class" para crear una clase/ odjeto llamado "ejemplo" y def __init__ para para definir la funcion del odjeto 
+class ejemplo:
+    def __init__(self):
+        self.root = tk.Tk()
+        self.root.title("Ejemplo")  # define el titulo de la ventana 
+        self.root.geometry("500x500") # define el tamaño de la ventana
+        self.label = tk.Label(self.root, text="¡Hola, Mundo!") #crea una etiqueta con el texto "¡Hola, Mundo!"
+        self.label.pack() #muestra la etiqueta en la ventana
+        self.color_fondo = "lightblue" #define el color de fondo
+        self.color_text = "pink" #define el color del texto
+        self.root.configure(bg=self.color_fondo) #aplica el color de fondo a la ventana, usando el metodo "configure" para configurar la ventana con el color definido
+        self.label.configure(fg=self.color_text) #aplica el color del texto a la etiqueta
+        self.color_panel = "lightgray" #define el color del panel
+
+        #para cear pestañas usamos el widget "Notebook" de ttk, que nos permite crear pestañas en la ventana, lo que es muy util para organizar la informacion y hacerla mas accesible para el usuario
+
+        self.notebook = ttk.Notebook(self.root) #crea un notebook, que es un widget que permite crear pestañas
+        self.notebook.pack(expand=True, fill='both') #muestra el notebook en la ventana
+        self.panel1 = ttk.Frame(self.notebook) #crea un panel para la primera pestaña
+        self.panel2 = ttk.Frame(self.notebook) #crea un panel para la segunda pestaña
+        self.notebook.add(self.panel1, text="Pestaña 1") #agrega el panel1 al notebook con el texto "Pestaña 1"
+        self.notebook.add(self.panel2, text="Pestaña 2") #agrega el panel2 al notebook con el texto "Pestaña 2"
+
+        self.construir_pestaña1() #llama a la funcion para construir la primera pestaña
+        self.construir_pestaña2() #llama a la funcion para construir la segunda pestaña
+
+    def construir_pestaña1(self):
+        tk.Label(self.panel1, text="escribe algo", bg=self.color_panel).pack(pady=20) #crea una etiqueta en el panel1 con el texto "escribe algo" y el color de fondo definido
+        ALGO = tk.Entry(self.panel1) #crea un campo de entrada en el panel1
+        tk.botton = tk.Button(self.panel1, text="mostrar", command=lambda: messagebox.showinfo("Mensaje", f"Has escrito: {ALGO.get()}")) #crea un boton en el panel1 que al hacer clic muestra un mensaje con el texto ingresado en el campo de entrada
+        ALGO.pack(pady=50) #muestra el campo de entrada en el panel1
+        tk.botton.pack() #muestra el boton en el panel1
+    
+
+    def construir_pestaña2(self):
+        tree_algo= ttk.Treeview (self.panel2, columns=("hola"))#crea un arbol en el panel2 con una columna llamada "hola"
+        tree_algo.heading("hola", text="hola") #define el encabezado de la columna principal del arbol como "ID"
+        tree_algo.pack()
+
+    
+        self.root.mainloop() #inicia el bucle principal de la aplicación, lo que hace que la ventana se muestre y responda a eventos, sin esta linea la ventana no se mostraria ni responderia a eventos poer lo que es esencial para cualquier aplicación de tkinter
+
+if __name__ == "__main__":
+    app = ejemplo()
+    app.run()
