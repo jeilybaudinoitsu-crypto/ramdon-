@@ -1,0 +1,27 @@
+print("calculadora basica de suma, resta, multiplicacion y division")
+operacion = input(" deseas sumar (+), restar (-), multiplicar (*), dividir (/)?:")
+if not operacion in ["+", "-", "*", "/"]:
+    print("operacion no valida, por favor ingresa + para sumar, - para restar, * para multiplicar o / para dividir")
+if operacion == "+":
+    num1 = int(input("ingresa el primer numero: "))
+    num2 = int(input("ingresa el segundo numero: "))
+    resultado = num1 + num2
+    print(f"el resultado de la suma es:{resultado}")
+elif operacion == "-":
+    num1 = int(input("ingresa el primer numero: "))
+    num2 = int(input("ingresa el segundo numero: "))
+    resultado = num1 - num2
+    print(f"el resultado de la resta es:{resultado}")
+elif operacion == "*":
+    num1 = int(input("ingresa el primer numero: "))
+    num2 = int(input("ingresa el segundo numero: "))
+    resultado = num1 * num2
+    print(f"el resultado de la multiplicacion es:{resultado}")
+elif operacion == "/":
+    num1 = int(input("ingresa el primer numero:"))
+    num2 = int(input("ingresa el segundo numero: "))
+    if num2 == 0:
+        print("error: no se puede dividir entre cero")
+    else:
+        resultado = num1 / num2
+        print(f"el resultado de la division es:{resultado}"
